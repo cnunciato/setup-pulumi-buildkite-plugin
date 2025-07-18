@@ -4,10 +4,9 @@ set -euo pipefail
 
 echo "~~~ Setup Pulumi"
 
-
 PULUMI_VERSION="${BUILDKITE_PLUGIN_SETUP_PULUMI_VERSION:-$(curl --silent --show-error "https://www.pulumi.com/latest-version")}"
-PULUMI_INSTALL_ROOT="${BUILDKITE_PLUGIN_SETUP_PULUMI_INSTALL_ROOT}"
 
-curl -fsSL https://get.pulumi.com | sh -s -- --version "$PULUMI_VERSION" --install-root "$PULUMI_INSTALL_ROOT"
+curl -fsSL https://get.pulumi.com | sh -s -- --version "$PULUMI_VERSION"
 
+export PATH="$HOME/.pulumi/bin:$PATH"
 pulumi version

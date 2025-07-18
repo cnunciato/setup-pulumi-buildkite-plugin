@@ -1,20 +1,30 @@
 steps:
-  - label: ":linux: Linux hosted agent test"
-    command: |
-      echo $$PATH
-      
+  - label: ":linux: Linux hosted agent with version"
+    command: pulumi version
     agents:
       queue: hosted-linux
     plugins:
       - cnunciato/setup-pulumi#$BUILDKITE_COMMIT:
-          install_root: /usr/local
+          version: 3.184.0
   
-  - label: ":mac: macOS hosted agent test"
-    command: |
-      echo $$PATH 
-      
+  - label: ":mac: macOS hosted agent with version"
+    command: pulumi version
     agents:
       queue: hosted-macos
     plugins:
       - cnunciato/setup-pulumi#$BUILDKITE_COMMIT:
-          install_root: /usr/local
+          version: 3.184.0
+
+  - label: ":linux: Linux hosted agent without version"
+    command: pulumi version
+    agents:
+      queue: hosted-linux
+    plugins:
+      - cnunciato/setup-pulumi#$BUILDKITE_COMMIT:
+  
+  - label: ":mac: macOS hosted agent without version"
+    command: pulumi version
+    agents:
+      queue: hosted-macos
+    plugins:
+      - cnunciato/setup-pulumi#$BUILDKITE_COMMIT:

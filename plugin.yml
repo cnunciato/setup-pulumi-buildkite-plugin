@@ -8,5 +8,3 @@ configuration:
   properties:
     version:
       type: string
-    install_root:
-      type: string
