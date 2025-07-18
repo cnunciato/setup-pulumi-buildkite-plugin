@@ -1,0 +1,20 @@
+steps:
+  - label: ":linux: Test on Linux"
+    command: |
+      echo $$PATH
+      
+    agents:
+      queue: hosted-linux
+    plugins:
+      - cnunciato/setup-pulumi#$BUILDKITE_COMMIT:
+          install_root: /usr/local
+  
+  - label: ":mac: Test on macOS"
+    command: |
+      echo $$PATH 
+      
+    agents:
+      queue: hosted-macos
+    plugins:
+      - cnunciato/setup-pulumi#$BUILDKITE_COMMIT:
+          install_root: /usr/local
