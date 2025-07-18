@@ -1,5 +1,5 @@
 steps:
-  - label: ":linux: Test on Linux"
+  - label: ":linux: Linux hosted agent test"
     command: |
       echo $$PATH
       
@@ -9,7 +9,7 @@ steps:
       - cnunciato/setup-pulumi#$BUILDKITE_COMMIT:
           install_root: /usr/local
   
-  - label: ":mac: Test on macOS"
+  - label: ":mac: macOS hosted agent test"
     command: |
       echo $$PATH 
       
